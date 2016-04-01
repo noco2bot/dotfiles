@@ -1,0 +1,29 @@
+# vi ~/.screenrc
+# Encoding
+defencodig utf-8
+ 
+# Prefix Key
+#escape ^Tt
+ 
+# Delete start up screen
+startup_message off
+ 
+# Auto detach
+autodetach on
+ 
+# logging
+log on
+deflog on
+logfile "/Users/nocoturtle/screen/log/screen-%Y%m%d-%n.log"
+ 
+# Show date and screen list
+hardstatus alwayslastline "%{= rw} %H %{= wk}%-Lw%{= bw}%n%f* %t%{= wk}%+Lw %{= wk}%=%{= gk} %y/%m/%d %c "
+ 
+
+#split window
+bind s eval split focus "select 0"
+bind ^s eval split focus "select 0"
+
+# original key bind
+bind h prev
+bind l next
