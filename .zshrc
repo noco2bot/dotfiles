@@ -5,6 +5,10 @@
 # 環境変数
 export LANG=ja_JP.UTF-8
 
+#LSCOLORS
+export LSCOLORS=gxfxcxdxbxegedabagacad
+alias ls='ls -G'
+
 # 補完機能を有効にする
 autoload -Uz compinit
 compinit
@@ -46,8 +50,9 @@ setopt interactive_comments
 
 # vim:set ft=zsh :
 
-#プロンプトの表示設定
-#改行
+
+##プロンプトの表示設定
+##改行
 autoload colors
 colors
 
@@ -56,8 +61,6 @@ PROMPT="
 [%n %D{%m/%d %T}]$ "
 
 PROMPT2='[%n]> ' 	
-
-
 
 
 #プロンプトに現在位置を表示
