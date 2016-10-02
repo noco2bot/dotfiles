@@ -5,9 +5,13 @@
 # 環境変数
 export LANG=ja_JP.UTF-8
 
-#LSCOLORS
+#LSCOLORS lsコマンドの色設定
 export LSCOLORS=gxfxcxdxbxegedabagacad
 alias ls='ls -G'
+
+#zshの再起動
+alias relogin='exec $SHELL -l'
+
 
 # 補完機能を有効にする
 autoload -Uz compinit
@@ -74,3 +78,22 @@ PROMPT2='[%n]> '
 #    zle .accept-line
 #}
 #zle -N accept-line re-prompt
+#source /usr/local/bin/aws_zsh_completer.sh
+
+#virtualenv 設定
+#    source /usr/local/bin/virtualenvwrapper.sh
+#    export WORKON_HOME=~/.virtualenvs
+
+
+# pip zsh completion start
+function _pip_completion {
+  local words cword
+  read -Ac words
+  read -cn cword
+  reply=( $( COMP_WORDS="$words[*]" \
+             COMP_CWORD=$(( cword-1 )) \
+             PIP_AUTO_COMPLETE=1 $words[1] ) )
+}
+compctl -K _pip_completion pip
+# pip zsh completion end
+
