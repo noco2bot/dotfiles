@@ -78,11 +78,19 @@ PROMPT2='[%n]> '
 #    zle .accept-line
 #}
 #zle -N accept-line re-prompt
+<<<<<<< HEAD
 #source /usr/local/bin/aws_zsh_completer.sh
 
 #virtualenv 設定
 #    source /usr/local/bin/virtualenvwrapper.sh
 #    export WORKON_HOME=~/.virtualenvs
+=======
+source /usr/local/bin/aws_zsh_completer.sh
+
+#virtualenv 設定
+    source /usr/local/bin/virtualenvwrapper.sh
+    export WORKON_HOME=~/.virtualenvs
+>>>>>>> 8879b32caea0a1602020a1778c1e2f6a804fe769
 
 
 # pip zsh completion start
