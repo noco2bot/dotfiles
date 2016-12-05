@@ -15,7 +15,6 @@ alias relogin='exec $SHELL -l'
 
 # 補完機能を有効にする
 autoload -Uz compinit
-compinit
 
 # cd したら自動的にpushdする
 setopt auto_pushd
@@ -34,7 +33,7 @@ SAVEHIST=1000000
 
 
 # emacs 風キーバインドにする
-#bindkey -e
+bindkey -e
 
 
 # 日本語ファイル名を表示可能にする
@@ -47,7 +46,7 @@ setopt no_beep
 setopt no_flow_control
  
 # Ctrl+Dでzshを終了しない
-#setopt ignore_eof
+setopt ignore_eof
  
 # '#' 以降をコメントとして扱う
 setopt interactive_comments
@@ -67,23 +66,16 @@ PROMPT="
 PROMPT2='[%n]> ' 	
 
 
-#プロンプトに現在位置を表示
-#PS1="%{$fg[cyan]%}[%D{%m/%d %T} %1~]%(!.#.$)${reset_color} "
-
-#PROMPT="%F{cyan}[%n@%m %D{%m/%d %T} %~]%(!.#.$)%f "
-
 #コマンド実行時に時刻を表示する
-#re-prompt() {
-#    zle .reset-prompt
-#    zle .accept-line
-#}
-#zle -N accept-line re-prompt
-source /usr/local/bin/aws_zsh_completer.sh
-
-#virtualenv 設定
+re-prompt() {
+    zle .reset-prompt
+    zle .accept-line
+}
+zle -N accept-line re-prompt
+ 
+# virtualenv 設定
     source /usr/local/bin/virtualenvwrapper.sh
     export WORKON_HOME=~/.virtualenvs
-
 
 # pip zsh completion start
 function _pip_completion {
