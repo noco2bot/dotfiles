@@ -33,28 +33,39 @@ set nocursorline
 " 挿入モードの時のみ、カーソル行をハイライトする
 autocmd InsertEnter,InsertLeave * set cursorline!
 
+
 "---------------------------
-" bundleで管理するディレクトリを指定
-set runtimepath+=~/.vim/bundle/neobundle.vim/
- 
-" Required:
+" Note: Skip initialization for vim-tiny or vim-small.
+if 0 | endif
+
+filetype off
+
+if has('vim_starting')
+	if &compatible
+		set nocompatible               " Be iMproved
+	endif
+	
+	set runtimepath+=~/.vim/bundle/neobundle.vim
+endif
+
 call neobundle#begin(expand('~/.vim/bundle/'))
 
 " neobundle自体をneobundleで管理
-  NeoBundleFetch 'Shougo/neobundle.vim'
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+" Required:
+filetype plugin indent on
+
+
 
 " 今後このあたりに追加のプラグインをどんどん書いて行きます！！"
-
 " NERDTree
 NeoBundle 'scrooloose/nerdtree'
 " autoclose ()閉じるやつ
 NeoBundle 'Townk/vim-autoclose'
 
-call neobundle#end()
-  
-" Required:
-filetype plugin indent on
 
+call neobundle#end()
 " 未インストールのプラグインがある場合、インストールするかどうかを尋ねてくれるようにする設定
 NeoBundleCheck
  
