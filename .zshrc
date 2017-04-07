@@ -74,8 +74,8 @@ re-prompt() {
 zle -N accept-line re-prompt
  
 # virtualenv 設定
-    source /usr/local/bin/virtualenvwrapper.sh
-    export WORKON_HOME=~/.virtualenvs
+#    source /usr/local/bin/virtualenvwrapper.sh
+#    export WORKON_HOME=~/.virtualenvs
 
 # pip zsh completion start
 function _pip_completion {
