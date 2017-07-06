@@ -19,7 +19,7 @@ set hlsearch
 nnoremap <silent> <Esc><Esc> :<C-u>nohlsearch<CR>
 
 " 行頭、行末への移動
-nnoremap <Space>h  0 
+nnoremap <Space>h  0
 nnoremap <Space>l  $
 
 
@@ -44,7 +44,7 @@ if has('vim_starting')
 	if &compatible
 		set nocompatible               " Be iMproved
 	endif
-	
+
 	set runtimepath+=~/.vim/bundle/neobundle.vim
 endif
 
@@ -68,7 +68,5 @@ NeoBundle 'Townk/vim-autoclose'
 call neobundle#end()
 " 未インストールのプラグインがある場合、インストールするかどうかを尋ねてくれるようにする設定
 NeoBundleCheck
- 
+
  "-------------------------
-
-

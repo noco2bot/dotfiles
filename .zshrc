@@ -5,6 +5,10 @@
 # 環境変数
 export LANG=ja_JP.UTF-8
 
+# mac openmpiにてTMPDIRが長すぎるとerrorになる問題
+export TMPDIR=/tmp
+
+
 #LSCOLORS lsコマンドの色設定
 export LSCOLORS=gxfxcxdxbxegedabagacad
 alias ls='ls -G'
@@ -35,7 +39,6 @@ SAVEHIST=1000000
 # emacs 風キーバインドにする
 bindkey -e
 
-
 # 日本語ファイル名を表示可能にする
 setopt print_eight_bit
  
@@ -52,7 +55,6 @@ setopt ignore_eof
 setopt interactive_comments
 
 # vim:set ft=zsh :
-
 
 ##プロンプトの表示設定
 ##改行
@@ -72,20 +74,4 @@ re-prompt() {
     zle .accept-line
 }
 zle -N accept-line re-prompt
- 
-# virtualenv 設定
-#    source /usr/local/bin/virtualenvwrapper.sh
-#    export WORKON_HOME=~/.virtualenvs
-
-# pip zsh completion start
-function _pip_completion {
-  local words cword
-  read -Ac words
-  read -cn cword
-  reply=( $( COMP_WORDS="$words[*]" \
-             COMP_CWORD=$(( cword-1 )) \
-             PIP_AUTO_COMPLETE=1 $words[1] ) )
-}
-compctl -K _pip_completion pip
-# pip zsh completion end
 
