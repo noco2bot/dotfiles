@@ -17,8 +17,13 @@ alias ls='ls -G'
 alias relogin='exec $SHELL -l'
 
 
+# git補完設定ファイルの読み込み
+fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
+
 # 補完機能を有効にする
 autoload -Uz compinit
+compinit -u
+
 
 # cd したら自動的にpushdする
 setopt auto_pushd
@@ -74,4 +79,5 @@ re-prompt() {
     zle .accept-line
 }
 zle -N accept-line re-prompt
+
 
