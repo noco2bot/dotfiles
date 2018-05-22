@@ -35,7 +35,6 @@ SAVEHIST=1000000
 # emacs 風キーバインドにする
 bindkey -e
 
-
 # 日本語ファイル名を表示可能にする
 setopt print_eight_bit
  
@@ -51,13 +50,6 @@ setopt ignore_eof
 # '#' 以降をコメントとして扱う
 setopt interactive_comments
 
-# vim:set ft=zsh :
-
-
-##プロンプトの表示設定
-##改行
-autoload colors
-colors
 
 PROMPT="
  %{${fg[yellow]}%}%~%{${reset_color}%} 
@@ -72,3 +64,8 @@ re-prompt() {
 }
 zle -N accept-line re-prompt
 
+
+fpath=(~/.zsh/completion $fpath)
+
+autoload -U compinit
+compinit -u
