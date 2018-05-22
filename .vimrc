@@ -10,7 +10,7 @@ set list
 set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 set tabstop=3
 
-"行頭行末移動で行をまたぐ
+" 行頭行末移動で行をまたぐ
 set whichwrap=b,s,h,l,<,>,[,]
 
 
@@ -19,7 +19,7 @@ set hlsearch
 nnoremap <silent> <Esc><Esc> :<C-u>nohlsearch<CR>
 
 " 行頭、行末への移動
-nnoremap <Space>h  0 
+nnoremap <Space>h  0
 nnoremap <Space>l  $
 
 

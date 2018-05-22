@@ -5,6 +5,10 @@
 # 環境変数
 export LANG=ja_JP.UTF-8
 
+# mac openmpiにてTMPDIRが長すぎるとerrorになる問題
+export TMPDIR=/tmp
+
+
 #LSCOLORS lsコマンドの色設定
 export LSCOLORS=gxfxcxdxbxegedabagacad
 alias ls='ls -G'
@@ -13,8 +17,13 @@ alias ls='ls -G'
 alias relogin='exec $SHELL -l'
 
 
+# git補完設定ファイルの読み込み
+fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
+
 # 補完機能を有効にする
 autoload -Uz compinit
+compinit -u
+
 
 # cd したら自動的にpushdする
 setopt auto_pushd
@@ -50,7 +59,6 @@ setopt ignore_eof
 # '#' 以降をコメントとして扱う
 setopt interactive_comments
 
-
 PROMPT="
  %{${fg[yellow]}%}%~%{${reset_color}%} 
 [%n %D{%m/%d %T}]$ "
@@ -63,9 +71,3 @@ re-prompt() {
     zle .accept-line
 }
 zle -N accept-line re-prompt
-
-
-fpath=(~/.zsh/completion $fpath)
-
-autoload -U compinit
-compinit -u
