@@ -16,10 +16,6 @@ alias ls='ls -G'
 #zshの再起動
 alias relogin='exec $SHELL -l'
 
-
-# git補完設定ファイルの読み込み
-fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
-
 # 補完機能を有効にする
 autoload -Uz compinit
 compinit -u
